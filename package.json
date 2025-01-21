@@ -1,0 +1,25 @@
+{
+  "name": "myblackcat",
+  "version": "1.0.0",
+  "description": "Este repositório é parte de uma prova de conceito (POC) para o desenvolvimento do backend de uma aplicação voltada para a adoção de gatos pretos. O objetivo é permitir o gerenciamento de informações relacionadas ao cadastro de gatos, adoções e seus respectivos adotantes.",
+  "main": "index.js",
+  "scripts": {
+    "myblackcat:dev": "tsx watch src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
+    "@types/node": "22.10.7",
+    "eslint": "8.57.1",
+    "tsup": "8.3.5",
+    "tsx": "4.19.2",
+    "typescript": "5.7.3"
+  },
+  "dependencies": {
+    "dotenv": "16.4.7",
+    "fastify": "5.2.1",
+    "zod": "3.24.1"
+  }
+}
