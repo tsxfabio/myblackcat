@@ -1,0 +1,14 @@
+{
+    "eslint.format.enable": true,
+    "eslint.probe": [
+        "astro",
+        "javascript",
+        "javascriptreact",
+        "html",
+        "mdx",
+        "vue",
+        "markdown",
+        "json",
+        "jsonc"
+    ]
+}

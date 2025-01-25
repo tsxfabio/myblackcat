@@ -18,7 +18,7 @@ model User {
   name          String
   email         String     @unique
   password_hash String
-  dateOfBirth   DateTime
+  date_of_birth DateTime   @db.Date
   createdAt     DateTime   @default(now())
   Adoption      Adoption[]
 
