@@ -1,7 +1,7 @@
-import { z } from 'zod'
-import { FastifyRequest, FastifyReply } from 'fastify'
-import { RegisterService } from '../../services/register.service'
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
+import { z } from 'zod';
+import { FastifyRequest, FastifyReply } from 'fastify';
+import { RegisterService } from '../../services/register.service';
+import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository';
 
 export const register = async (
   request: FastifyRequest,
@@ -17,27 +17,25 @@ export const register = async (
         message: 'Invalid date format. Use YYYY-MM-DD',
       })
       .transform((value) => new Date(value)),
-  })
+  });
 
   const { name, email, password, date_of_birth } = requestSchema.parse(
     request.body,
-  )
+  );
 
   try {
-    const prismaUsersRepository = new PrismaUsersRepository()
-    const registerService  = new RegisterService(
-      prismaUsersRepository
-    )
+    const prismaUsersRepository = new PrismaUsersRepository();
+    const registerService = new RegisterService(prismaUsersRepository);
 
     await registerService.execute({
       name,
       email,
       password,
       date_of_birth,
-    })
+    });
   } catch (error: any) {
-    reply.status(409).send({ message: error.message })
+    reply.status(409).send({ message: error.message });
   }
 
-  reply.status(201).send({ message: 'User created successfully' })
-}
+  reply.status(201).send({ message: 'User created successfully' });
+};
