@@ -1,6 +1,7 @@
 import { IUserRepository } from '@/types/users-repository';
 import { User } from '@prisma/client';
 import { compare } from 'bcryptjs';
+import { AuthInvalidCredentialsError } from '../_errors/auth-invalid-credentials.error';
 
 interface IAuthServiceRequest {
   email: string;
@@ -21,13 +22,13 @@ export class AuthService {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
-      throw new Error('User not found');
+      throw new AuthInvalidCredentialsError();
     }
 
     const passwordMatch = await compare(password, user.password_hash);
 
     if (!passwordMatch) {
-      throw new Error('Invalid credentials');
+      throw new AuthInvalidCredentialsError();
     }
 
     return {

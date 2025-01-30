@@ -1,7 +1,7 @@
 import { ICreateUser } from '@/types/users';
 import { IUserRepository } from '@/types/users-repository';
 import { hash } from 'bcryptjs';
-import { UserAlreadyExistsError } from '../errors/user-already-exists.error';
+import { UserAlreadyExistsError } from '../_errors/user-already-exists.error';
 import { User } from '@prisma/client';
 
 // SOLID
