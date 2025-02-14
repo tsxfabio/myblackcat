@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "myblackcat:dev": "tsx watch src/server.ts",
+    "prisma:studio": "npx prisma studio",
     "test": "vitest run",
     "test:watch": "vitest"
   },
